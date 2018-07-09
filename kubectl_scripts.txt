@@ -1,0 +1,27 @@
+karthequian/helloworld
+
+
+kubectl run mule-mongo --image=naveentak/mulerepo --port=27017
+
+
+kubectl expose deployment mule-mongo --type=NodePort 
+
+kubectl get pods — namespace=kube-system
+
+kubectl  port-forward kubernetes-dashboard-7798c48646-ctrtl 8443:8443 — namespace=kube-system
+
+
+
+kubectl run hello-nginx --image=nginx --port=80
+
+kubectl port-forward -n kube-system kubernetes-dashboard-7d5dcdb6d9-trbsh 8443:8443
+
+
+docker stack deploy --compose-file docker-compose.yml mulemongo
+
+kubectl run hello-test --image=karthequian/helloworld --port=80
+
+kubectl expose deployment hello-test --type=LoadBalancer 
+
+
+kubectl exec -it muleapp-757ffb6558-45nmn /bin/bash

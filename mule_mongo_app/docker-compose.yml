@@ -1,0 +1,18 @@
+version: '3'
+services:
+  muleapp:
+    image: mule01
+    volumes:
+      - ~/OneDrive/work/muleapp/deployments:/opt/mule/apps
+    ports:
+      - 9091:8081
+    command: /opt/mule/bin/./mule
+    
+    depends_on:
+      - mongoapp
+  
+  mongoapp:
+    image: mongoimage01
+    ports:
+      - 37017:27017
+      

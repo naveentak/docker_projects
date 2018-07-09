@@ -1,0 +1,12 @@
+version: '3'
+services:
+  muleapp:
+    image: mulemongo01
+    volumes:
+      - ~/OneDrive/work/muleapp/deployments:/opt/mule/apps
+    ports:
+      - "9091:8081"
+      - "37017:27017"
+    command: bash -c "/opt/mule/bin/./mule start && mongod"
+    
+ 

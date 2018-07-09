@@ -1,0 +1,90 @@
+
+cd 10.0.0.11/iib
+docker build -t iibmqimage1 .
+
+
+docker run --name iibmq2 -e LICENSE=accept -e NODENAME=LOCALNODE01 -e SERVERNAME=testserver -P iibmqimage1
+
+
+--mqsilist
+docker exec toolkitdev /bin/bash -c mqsilist
+docker exec iibmq2 /bin/bash -c mqsilist
+
+--interactive session
+docker exec -it iibmq2 /bin/bash
+
+
+
+docker exec -ti toolkitdev /bin/bash -c "DISPLAY=\":1\" /opt/ibm/iib-10.0.0.10/tools/eclipse"
+
+#to remove all dead containers
+
+sudo docker ps -a | grep Exit | cut -d ' ' -f 1 | xargs sudo docker rm
+
+. /opt/ibm/iib-10.0.0.10/server/bin/mqsiprofile
+
+docker cp c:\path\to\local\file container_name:/path/to/target/dir/
+
+docker cp personapi.jar mycontainer:/foo.txt
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+
+
+
+docker build -t mulemongoimage01 .
+
+docker run -d --name mule29 -P mulemongoimage01
+
+
+docker run -d --name mule2 -P naveentak/mulerepo
+docker run -d --name jetty01 -P jettymule
+
+wasliberty01
+docker run -d --name wasliberty01 -P websphere-liberty
+
+docker run --name mongo1 -P mongodbmage01
+
+docker run -h=my.mongo.docker --name mongo1 -P mongodbmage01
+
+docker exec -it mule1 /bin/bash
+
+
+docker exec -it wasliberty01 /bin/bash
+
+
+
+docker cp personapi.jar mycontainer:/opt/mule/apps/personapi.jar
+
+docker cp customer1st-adm.ear jetty01:/var/lib/jetty/webapps/customer1st-adm.ear
+
+
+docker tag 9cf220bf2ce1 naveentak/mulerepo:mule01image
+
+docker push naveentak/mulerepo
+
+docker run --name mongo1 -P f93ff881751f
+
+
+
+#!/bin/bash
+# Delete all containers
+docker rm $(docker ps -a -q)
+# Delete all images
+docker rmi $(docker images -q)
+
+
+
+docker build -t javaimage01 .
+
+
+sudo rm -f /usr/local/bin/docker
+sudo rm -f /usr/local/bin/docker-machine
+sudo rm -r /usr/local/bin/docker-machine-driver*
+sudo rm -f /usr/local/bin/docker-compose
+
+
+docker run -d -p 80:9080 -p 443:9443 \
+ -v /Users/naveentak/Downloads/DefaultServletEngine/dropins/Sample1.war:/config/dropins/Sample1.war \
+  websphere-liberty:webProfile7
