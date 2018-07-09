@@ -3,7 +3,6 @@ karthequian/helloworld
 
 kubectl run mule-mongo --image=naveentak/mulerepo --port=27017
 
-
 kubectl expose deployment mule-mongo --type=NodePort 
 
 kubectl get pods — namespace=kube-system
@@ -14,6 +13,7 @@ kubectl  port-forward kubernetes-dashboard-7798c48646-ctrtl 8443:8443 — namesp
 
 kubectl run hello-nginx --image=nginx --port=80
 
+#display docker kubernetes dashboard
 kubectl port-forward -n kube-system kubernetes-dashboard-7d5dcdb6d9-trbsh 8443:8443
 
 
