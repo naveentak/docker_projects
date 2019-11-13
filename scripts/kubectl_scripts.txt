@@ -25,3 +25,20 @@ kubectl expose deployment hello-test --type=LoadBalancer
 
 
 kubectl exec -it muleapp-757ffb6558-45nmn /bin/bash
+
+
+
+kubectl exec -it mule-mongo-5cff49fd95-mc2bs /bin/bash
+
+
+#STEP 1
+#to get token
+kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | awk '/^deployment-controller-token-/{print $1}') | awk '$1=="token:"{print $2}'
+
+#STEP2
+#to create service
+kubectl run mule-mongo --image=naveentak/mulerepo --port=27017
+
+#STEP3
+#to expose service
+kubectl expose deployment mule-mongo --type=NodePort 
