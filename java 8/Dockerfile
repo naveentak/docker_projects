@@ -10,8 +10,7 @@ FROM ubuntu:16.04
 
 LABEL maintainer "Naveen Tak"
 
-LABEL "ProductName"="Mule EE Runtime" \
-      "ProductVersion"="4.1.2"
+LABEL "JAVA 8"
 
 # Install Java.
 RUN apt-get update && \
